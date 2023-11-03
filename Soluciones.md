@@ -90,3 +90,36 @@ Vamos a crear el modelo de nuestra aplicación. Para ello, abrimos el archivo mo
             def __str__(self):
                 return self.Nombre
         ```
+
+## Actualizar cambios en la base de datos
+
+Ahora, vamos reflejar los cambios en nuestra base de datos, para ello, ejecutaremos el siguiente comando:
+
+        ```
+        python manage.py makemigrations task #Nombre de la aplicación que queremos migrar, si no ponemos nada, se migrarán todas las aplicaciones
+        ```
+
+Ahora, vamos a aplicar los cambios en la base de datos:
+
+        ```
+        python manage.py migrate
+        ```
+
+## Administrador de nuestro sitio
+
+Tenemos que abrir el archivo admin.py y añadir el siguiente código:
+
+        ```
+        from django.contrib import admin
+        from .models import Task
+
+        admin.site.register(Task)
+        ```
+
+### Crear un superusuario
+
+Para ello, ejecutamos el siguiente comando:
+
+```
+
+```
