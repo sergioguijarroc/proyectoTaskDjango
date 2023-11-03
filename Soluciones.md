@@ -148,7 +148,7 @@ Vamos a gestionar las urls, para ello vamos a crear un archivo urls.py en la car
 
 Ahora, vamos a crear un archivo urls.py en la carpeta task y añadiremos el siguiente código:
 
-        ```
+        ```python
         from django.urls import path
         from . import views
 
@@ -157,7 +157,7 @@ Ahora, vamos a crear un archivo urls.py en la carpeta task y añadiremos el sigu
         ]
         ```
 
-## Creamos la vista
+## Creamos la vista sad
 
 Vamos a poner el siguiente método en el archivo views.py
 
@@ -170,3 +170,5 @@ def task_list(request):
     tasks = Task.objects.all()
     return render(request, "task/task_list.html", {})
 ```
+
+## Plantillas
