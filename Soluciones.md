@@ -121,5 +121,15 @@ Tenemos que abrir el archivo admin.py y añadir el siguiente código:
 Para ello, ejecutamos el siguiente comando:
 
 ```
+python manage.py createsuperuser
+```
+
+Ejecutamos el servidor para comprobar que se han realizado los cambios:
 
 ```
+python manage.py runserver
+```
+
+Si nos vamos a la dirección http://127.0.0.1:8000/admin y nos logueamos con el usuario y contraseña que hemos creado, podremos ver que se ha creado la tabla Task.
+
+Vamos a añadir algunos datos para comprobar que todo funciona correctamente.
