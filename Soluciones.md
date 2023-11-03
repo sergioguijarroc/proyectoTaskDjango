@@ -133,3 +133,26 @@ python manage.py runserver
 Si nos vamos a la dirección http://127.0.0.1:8000/admin y nos logueamos con el usuario y contraseña que hemos creado, podremos ver que se ha creado la tabla Task.
 
 Vamos a añadir algunos datos para comprobar que todo funciona correctamente.
+
+## URLS
+
+Vamos a gestionar las urls, para ello vamos a crear un archivo urls.py en la carpeta task y añadiremos el siguiente código:
+
+        ```
+        from django.urls import path, include #Importamos include
+
+        urlpatterns = [
+            path('', include(task.urls)), #Añadimos la url de nuestra aplicación
+        ]
+        ```
+
+Ahora, vamos a crear un archivo urls.py en la carpeta task y añadiremos el siguiente código:
+
+        ```
+        from django.urls import path
+        from . import views
+
+        urlpatterns = [
+                path('', views.task_list, name='task_list'),
+        ]
+        ```
