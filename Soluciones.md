@@ -148,7 +148,7 @@ Vamos a gestionar las urls, para ello vamos a crear un archivo urls.py en la car
 
 Ahora, vamos a crear un archivo urls.py en la carpeta task y añadiremos el siguiente código:
 
-        ```python
+        ```
         from django.urls import path
         from . import views
 
@@ -157,7 +157,7 @@ Ahora, vamos a crear un archivo urls.py en la carpeta task y añadiremos el sigu
         ]
         ```
 
-## Creamos la vista sad
+## Creamos la vista
 
 Vamos a poner el siguiente método en el archivo views.py
 
@@ -172,3 +172,25 @@ def task_list(request):
 ```
 
 ## Plantillas
+
+Vamos a crear un directorio en task llamado templates, y, dentro de él, otro llamado task
+En él, vamos a crear el archivo task_list.html
+Y ahí vamos a introducir el siguiente
+
+<h1>Task</h1>
+<div>
+  <ul>
+    {%for task in tasks%}
+    <li>
+      {{task.nombre}} - {{task.descripcion}}<br />
+      ¿Está hecha?
+      <br />
+      ({{task.realizada|yesno:"Sí,No"}})
+    </li>
+    {%empty%}
+    <li>No hay tareas por hacer</li>
+    {%endfor%}
+  </ul>
+</div>
+
+Iniciamos el servidor y ya debería funcionar.
