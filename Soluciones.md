@@ -142,7 +142,7 @@ Vamos a gestionar las urls, para ello vamos a crear un archivo urls.py en la car
         from django.urls import path, include #Importamos include
 
         urlpatterns = [
-            path('', include(task.urls)), #Añadimos la url de nuestra aplicación
+            path('', include('task.urls')), #Añadimos la url de nuestra aplicación
         ]
         ```
 
@@ -156,3 +156,17 @@ Ahora, vamos a crear un archivo urls.py en la carpeta task y añadiremos el sigu
                 path('', views.task_list, name='task_list'),
         ]
         ```
+
+## Creamos la vista
+
+Vamos a poner el siguiente método en el archivo views.py
+
+```
+from django.shortcuts import render
+from .models import Task #Esto
+
+# Create your views here.
+def task_list(request):
+    tasks = Task.objects.all()
+    return render(request, "task/task_list.html", {})
+```
