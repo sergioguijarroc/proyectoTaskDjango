@@ -50,54 +50,54 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 Ahora, vamos a crear la base de datos:
 
-    ```
-    python manage.py migrate
-    ```
+```
+python manage.py migrate
+```
 
 Ahora, vamos a compronbar que todo funciona correctamente:
 
-    ```
-    python manage.py runserver
-    ```
+```
+python manage.py runserver
+```
 
 ## Creación del modelo de nuestra app Task
 
 Para mantener todo en orden, crearemos una aplicación separada dentro de nuestro proyecto.
 Usaremos el siguiente comando:
 
-        ```
-        python manage.py startapp task
-        ```
+    ```
+    python manage.py startapp task
+    ```
 
 Después de crear la aplicación, vamos a añadirla a nuestro proyecto. Para ello, abrimos el archivo settings.py y añadimos la aplicación en la lista INSTALLED_APPS.
 Añadiremos la siguiente línea:
 
-        ```
-        'task.apps.TaskConfig', #Ponemos el nombre de la aplicación y el nombre de la clase
-        ```
+    ```
+    'task.apps.TaskConfig', #Ponemos el nombre de la aplicación y el nombre de la clase
+    ```
 
 Vamos a crear el modelo de nuestra aplicación. Para ello, abrimos el archivo models.py y añadimos el siguiente código:
 
-        ```
-        from django.db import models
-        from django.utils import timezone
+    ```
+    from django.db import models
+    from django.utils import timezone
 
-        class Task(models.Model):
-            Nombre = models.CharField(max_length=200)
-            descripcion = models.TextField()
-            realizada = models.BooleanField(default=False)
+    class Task(models.Model):
+        Nombre = models.CharField(max_length=200)
+        descripcion = models.TextField()
+        realizada = models.BooleanField(default=False)
 
-            def __str__(self):
-                return self.Nombre
+        def __str__(self):
+            return self.Nombre
         ```
 
 ## Actualizar cambios en la base de datos
 
 Ahora, vamos reflejar los cambios en nuestra base de datos, para ello, ejecutaremos el siguiente comando:
 
-        ```
-        python manage.py makemigrations task #Nombre de la aplicación que queremos migrar, si no ponemos nada, se migrarán todas las aplicaciones
-        ```
+    ```
+    python manage.py makemigrations task #Nombre de la aplicación que queremos migrar, si no ponemos nada, se migrarán todas las aplicaciones
+    ```
 
 Ahora, vamos a aplicar los cambios en la base de datos:
 
