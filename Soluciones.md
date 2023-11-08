@@ -42,10 +42,11 @@ django-admin startproject mySite .
 Ya tenemos creado el proyecto, ahora, vamos a modificar el archivo settings.py para que se pueda conectar a la base de datos.
 En LANGUAGE_CODE ponemos ‘es-es’
 En TIME_ZONE Deberíamos poner “Europe/Berlin”
-Añadimos la siguiente línea al final del archivo:
+Añadimos la siguiente línea al final del archivo para que se pueda conectar a la base de datos:
 
 ```
 STATIC_ROOT = BASE_DIR / 'static'
+```
 ```
 
 Ahora, vamos a crear la base de datos:

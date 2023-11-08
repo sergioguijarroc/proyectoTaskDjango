@@ -1,9 +1,18 @@
 <h1>Task</h1>
 <div>
+
+  <h1>Nueva tarea</h1>
+  <form action="{%url 'task_list'%}" method="Post">
+    {%csrf_token%}
+    {{ form.as_p }} <!--Esto es un atajo para que se muestren todos los campos del formulario-->
+    <button type="submit">Agregar tarea</button>
+  </form>
+
   <ul>
     {%for task in tasks%}
     <li>
-      {{task.nombre}} - {{task.descripcion}}<br />
+      <h2>{{task.nombre}}</h2>
+      <p>{{task.descripcion}}</p>
       ¿Está hecha?
       <br />
       ({{task.realizada|yesno:"Sí,No"}})
