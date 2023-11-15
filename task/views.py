@@ -87,6 +87,23 @@ class Task_descripcion(View):
         )
 
 
+# Editar un objeto:
+class Task_edit(View):
+    template_name = "task/task_edit.html"
+
+    def get(self, request, pk):
+        task_edit = get_object_or_404(Task, pk=pk)
+        form = TaskForm(instance=task_edit)
+        return render(request, self.template_name, {"form": form})
+
+    def post(self, request, pk):
+        task_edit = get_object_or_404(Task, pk=pk)
+        form = TaskForm(request.POST, instance=task_edit)
+        if form.is_valid():
+            form.save()
+            return redirect("Task_descripcion", pk=task_edit.pk)
+
+
 # Clases
 
 """

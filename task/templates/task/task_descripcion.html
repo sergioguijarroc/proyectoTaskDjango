@@ -19,6 +19,8 @@
         <p>Descripción:</p>
         <p>{{task_descripcion.descripcion}}</p>
         <p>¿Está hecha? {{task.descripcion|yesno:"Sí,No"}}</p>
+
+        <a href="{% url 'task_edit' pk=task_descripcion.pk %}">Editar esta tarea</a>
     </div>
 
 </body>

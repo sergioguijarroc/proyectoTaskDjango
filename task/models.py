@@ -7,7 +7,7 @@ class Task(models.Model):
     realizada = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.nombre}\n{self.descripcion}"
+        return self.nombre
 
 
 # Create your models here.

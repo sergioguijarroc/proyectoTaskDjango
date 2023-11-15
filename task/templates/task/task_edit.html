@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Formulario</h1>
+  <div>
+    <h1>Nueva tarea</h1>
+    <form action="" method="Post">
+      {%csrf_token%} {{ form.as_p }}
+      <!--Esto es un atajo para que se muestren todos los campos del formulario-->
+      <button type="submit">Editar tarea</button>
+    </form>
+</body>
+
+</html>
